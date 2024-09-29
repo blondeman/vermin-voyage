@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2tc2akya051h"]
+
+[ext_resource type="Script" path="res://scripts/ShipNode.gd" id="1_ve4xb"]
+
+[node name="ShipNode" type="Area2D"]
+script = ExtResource("1_ve4xb")
