@@ -1,17 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://0iaipsrkeoas"]
+[gd_scene load_steps=2 format=3 uid="uid://0iaipsrkeoas"]
 
-[ext_resource type="PackedScene" uid="uid://c2tc2akya051h" path="res://scenes/ShipNode.tscn" id="1_xgewb"]
-[ext_resource type="PackedScene" uid="uid://c3kyrici0uu2m" path="res://scenes/ShipLine.tscn" id="2_i62lh"]
+[ext_resource type="PackedScene" uid="uid://bsrwh1vkbdhdv" path="res://scenes/Ship.tscn" id="1_anyux"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="ShipNode" parent="." instance=ExtResource("1_xgewb")]
-position = Vector2(135, 83)
-
-[node name="ShipNode2" parent="." instance=ExtResource("1_xgewb")]
-position = Vector2(411, 216)
-
-[node name="Node2D" parent="." node_paths=PackedStringArray("nodeA", "nodeB") instance=ExtResource("2_i62lh")]
-position = Vector2(237, 196)
-nodeA = NodePath("../ShipNode")
-nodeB = NodePath("../ShipNode2")
+[node name="Node2D" parent="." instance=ExtResource("1_anyux")]

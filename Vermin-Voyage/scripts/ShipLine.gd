@@ -6,3 +6,6 @@ class_name ShipLine
 
 func setLine():
 	points = [nodeA.position, nodeB.position]
+
+func hasNode(node: ShipNode) -> bool:
+	return node == nodeA or node == nodeB
