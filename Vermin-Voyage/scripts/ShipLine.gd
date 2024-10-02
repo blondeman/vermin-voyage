@@ -3,9 +3,16 @@ class_name ShipLine
 
 var nodeA: ShipNode = null
 var nodeB: ShipNode = null
+@onready var addHandle: Node2D
+@onready var shipBuilder: ShipBuilder
+
+func _ready():
+	addHandle = find_child("AddHandle")
+	shipBuilder = find_parent("ShipBuilder")
 
 func setLine():
 	points = [nodeA.position, nodeB.position]
+	addHandle.position = getMidpoint()
 
 func hasNode(node: ShipNode) -> bool:
 	return node == nodeA or node == nodeB
@@ -28,29 +35,9 @@ func isValid(other: ShipLine, minAngle: float) -> bool:
 	return false
 
 func getAngle(other: ShipLine) -> float:
-	var a: Vector2 = Vector2.ZERO
-	var b: Vector2 = Vector2.ZERO
-	var c: Vector2 = Vector2.ZERO
-	
-	if nodeA == other.nodeA:
-		a = nodeB.position
-		b = nodeA.position
-		c = other.nodeB.position
-	elif nodeB == other.nodeA:
-		a = nodeA.position
-		b = nodeB.position
-		c = other.nodeB.position
-	elif nodeB == other.nodeB:
-		a = nodeA.position
-		b = nodeB.position
-		c = other.nodeA.position
-	elif nodeA == other.nodeB:
-		a = nodeB.position
-		b = nodeA.position
-		c = other.nodeA.position
-		
-	var ab = a - b
-	var bc = c - b
+	var nodes = getRightHandNodes(other)
+	var ab = nodes[0].position - nodes[1].position
+	var bc = nodes[2].position - nodes[1].position
 	var t = acos(ab.dot(bc) / (ab.length() * bc.length()))
 	return rad_to_deg(t)
 
@@ -68,3 +55,30 @@ func getIntersection(other: ShipLine):
 		var intersect = Vector2(p0.x + (t * s1.x), p0.y + (t * s1.y))
 		return intersect
 	return null
+
+func getRightHandNodes(other: ShipLine) -> Array:
+	var array: Array = Array()
+	if nodeA == other.nodeA:
+		array.append(nodeB)
+		array.append(nodeA)
+		array.append(other.nodeB)
+	elif nodeB == other.nodeA:
+		array.append(nodeA)
+		array.append(nodeB)
+		array.append(other.nodeB)
+	elif nodeB == other.nodeB:
+		array.append(nodeA)
+		array.append(nodeB)
+		array.append(other.nodeA)
+	elif nodeA == other.nodeB:
+		array.append(nodeB)
+		array.append(nodeA)
+		array.append(other.nodeA)
+	return array
+
+func getMidpoint() -> Vector2:
+	return (nodeA.position + nodeB.position) / 2
+
+func _on_add_handle_input_event(viewport, event, shape_idx):
+	if event.is_action_pressed("ship_drag"):
+		shipBuilder.addNode(self)
