@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://0iaipsrkeoas"]
+[gd_scene load_steps=3 format=3 uid="uid://0iaipsrkeoas"]
 
 [ext_resource type="PackedScene" uid="uid://bsrwh1vkbdhdv" path="res://scenes/Ship.tscn" id="1_anyux"]
+[ext_resource type="PackedScene" uid="uid://bu2nrjghd0kb" path="res://scenes/ShipBuilder.tscn" id="1_pirtx"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Node2D" parent="." instance=ExtResource("1_anyux")]
+[node name="ShipBuilder" parent="." node_paths=PackedStringArray("ship") instance=ExtResource("1_pirtx")]
+ship = NodePath("Ship")
+
+[node name="Ship" parent="ShipBuilder" instance=ExtResource("1_anyux")]
