@@ -2,6 +2,7 @@ extends Area2D
 class_name ShipNode
 
 #null opposite means it's a center node
+var isMain: bool = false
 var opposite: ShipNode = null
 @onready var shipBuilder: ShipBuilder
 
