@@ -4,21 +4,16 @@ class_name Ship
 var shipNodeScene = preload("res://scenes/ShipNode.tscn")
 var shipLineScene = preload("res://scenes/ShipLine.tscn")
 
-var nodePositions: Array = [Vector2(50,300), Vector2(450,30), Vector2(650,30), Vector2(850,300)]
-var nodeLines: Array = [[0,1], [1,2], [2,3]]
-
 var nodes: Array = []
 var lines: Array = []
 
-func _ready():
-	build(nodePositions, nodeLines)
-	
 func build(nodePositions: Array, nodeLines: Array):
 	for i in range(nodePositions.size()):
 		var node = shipNodeScene.instantiate()
 		add_child(node)
 		nodes.append(node)
 		
+		node.isMain = true
 		node.position = nodePositions[i]
 		
 		if i != 0 and i != nodePositions.size() - 1:
@@ -34,6 +29,7 @@ func build(nodePositions: Array, nodeLines: Array):
 		add_child(line)
 		lines.append(line)
 		
+		line.isMain = true
 		line.nodeA = nodes[nodeLines[i][0]]
 		line.nodeB = nodes[nodeLines[i][1]]
 		line.setLine()
@@ -66,12 +62,8 @@ func getOppositeLine(other: ShipLine) -> ShipLine:
 			return line
 	return null
 
-func isValidShip(minAngle: float) -> bool:
-	for lineA in lines:
-		for lineB in lines:
-			if not lineA.isValid(lineB, minAngle):
-				return false
-	return true
+func getLineNodeIndices(line: ShipLine) -> Array:
+	return [nodes.find(line.nodeA), nodes.find(line.nodeB)]
 
 func removeNode(node: ShipNode):
 	nodes.erase(node)
@@ -80,3 +72,13 @@ func removeNode(node: ShipNode):
 func removeLine(line: ShipLine):
 	lines.erase(line)
 	line.queue_free()
+
+func clear():
+	for line in lines:
+		line.queue_free()
+	lines.clear()
+	for node in nodes:
+		if node.opposite != null:
+			node.opposite.queue_free()
+		node.queue_free()
+	nodes.clear()

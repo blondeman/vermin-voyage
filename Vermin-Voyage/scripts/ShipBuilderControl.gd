@@ -39,10 +39,12 @@ func addNode(line: ShipLine) -> ShipNode:
 	var oppositeNode = ship.shipNodeScene.instantiate()
 	ship.add_child(node)
 	ship.add_child(oppositeNode)
-	ship.nodes.append(node)
+	ship.nodes.insert(ship.nodes.size()-2, node)
 	
+	node.isMain = line.isMain
 	node.position = line.getMidpoint()
 	node.opposite = oppositeNode
+	oppositeNode.isMain = !line.isMain
 	oppositeNode.position = node.oppositePosition()
 	oppositeNode.opposite = node
 	
@@ -54,6 +56,7 @@ func addNode(line: ShipLine) -> ShipNode:
 	var newLine = ship.shipLineScene.instantiate()
 	ship.add_child(newLine)
 	ship.lines.append(newLine)
+	newLine.isMain = line.isMain
 	newLine.nodeA = node
 	newLine.nodeB = tempNode
 	newLine.setLine()
@@ -66,6 +69,7 @@ func addNode(line: ShipLine) -> ShipNode:
 	var oppositeNewLine = ship.shipLineScene.instantiate()
 	ship.add_child(oppositeNewLine)
 	ship.lines.append(oppositeNewLine)
+	oppositeNewLine.isMain = !line.isMain
 	oppositeNewLine.nodeA = node.getOpposite()
 	oppositeNewLine.nodeB = oppositeTempNode
 	oppositeNewLine.setLine()

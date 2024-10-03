@@ -1,6 +1,7 @@
 extends Line2D
 class_name ShipLine
 
+var isMain: bool = false
 var nodeA: ShipNode = null
 var nodeB: ShipNode = null
 @onready var addHandle: Node2D
