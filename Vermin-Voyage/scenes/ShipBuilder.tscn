@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bu2nrjghd0kb"]
+[gd_scene load_steps=2 format=3 uid="uid://b344rucchie11"]
 
-[ext_resource type="Script" path="res://scripts/ShipBuilder.gd" id="1_ocnu0"]
+[ext_resource type="Script" path="res://scripts/ShipBuilder/ShipBuilder.gd" id="1_ddpu6"]
 
 [node name="ShipBuilder" type="Node2D"]
-script = ExtResource("1_ocnu0")
+script = ExtResource("1_ddpu6")
