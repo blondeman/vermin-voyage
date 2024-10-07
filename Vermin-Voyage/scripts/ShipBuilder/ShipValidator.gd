@@ -8,6 +8,10 @@ func isValid(ship: Ship) -> bool:
 		for lineB in ship.lines:
 			if not lineA.isValid(lineB, minAngle):
 				return false
-	#check for node distance
-	#check for node and line connectivity
+	
+	for node in ship.nodes:
+		if len(ship.findLines(node)) != 2:
+			print("invalid nodes: " + str(node))
+			return false
+	
 	return true

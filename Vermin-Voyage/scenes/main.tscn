@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://0iaipsrkeoas"]
 
 [ext_resource type="PackedScene" uid="uid://bsrwh1vkbdhdv" path="res://scenes/Ship.tscn" id="1_anyux"]
-[ext_resource type="PackedScene" uid="uid://b344rucchie11" path="res://scenes/ShipBuilder.tscn" id="1_pirtx"]
-[ext_resource type="PackedScene" uid="uid://db1f1ali2k0x6" path="res://scenes/Camera.tscn" id="3_qxyon"]
-[ext_resource type="PackedScene" uid="uid://cx3qbgysalr2e" path="res://scenes/ShipBuilderUI.tscn" id="4_nlere"]
+[ext_resource type="PackedScene" uid="uid://bu2nrjghd0kb" path="res://scenes/ShipBuilder.tscn" id="1_pirtx"]
+[ext_resource type="PackedScene" path="res://scenes/Camera.tscn" id="3_qxyon"]
+[ext_resource type="PackedScene" path="res://scenes/ShipBuilderUI.tscn" id="4_nlere"]
 
 [node name="Node2D" type="Node2D"]
 
