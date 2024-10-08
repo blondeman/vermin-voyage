@@ -1,18 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://0iaipsrkeoas"]
+[gd_scene load_steps=3 format=3 uid="uid://bibqw1xj6354c"]
 
-[ext_resource type="PackedScene" uid="uid://bsrwh1vkbdhdv" path="res://scenes/Ship.tscn" id="1_anyux"]
-[ext_resource type="PackedScene" uid="uid://bu2nrjghd0kb" path="res://scenes/ShipBuilder.tscn" id="1_pirtx"]
-[ext_resource type="PackedScene" path="res://scenes/Camera.tscn" id="3_qxyon"]
-[ext_resource type="PackedScene" path="res://scenes/ShipBuilderUI.tscn" id="4_nlere"]
+[ext_resource type="PackedScene" uid="uid://b58o4rpoc6ght" path="res://scenes/Player.tscn" id="2_4d7rj"]
+[ext_resource type="PackedScene" uid="uid://db1f1ali2k0x6" path="res://scenes/Camera.tscn" id="3_qxyon"]
 
-[node name="Node2D" type="Node2D"]
-
-[node name="ShipBuilder" parent="." node_paths=PackedStringArray("ship", "ui") instance=ExtResource("1_pirtx")]
-ship = NodePath("Ship")
-ui = NodePath("../CanvasLayer")
-
-[node name="Ship" parent="ShipBuilder" instance=ExtResource("1_anyux")]
+[node name="main" type="Node2D"]
 
 [node name="Camera" parent="." instance=ExtResource("3_qxyon")]
 
-[node name="CanvasLayer" parent="." instance=ExtResource("4_nlere")]
+[node name="Player" parent="." instance=ExtResource("2_4d7rj")]

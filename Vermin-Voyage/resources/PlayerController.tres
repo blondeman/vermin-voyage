@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="PlayerController" load_steps=2 format=3 uid="uid://wl1d401l7ihx"]
+
+[ext_resource type="Script" path="res://scripts/PlayerController.gd" id="1_kpepj"]
+
+[resource]
+script = ExtResource("1_kpepj")

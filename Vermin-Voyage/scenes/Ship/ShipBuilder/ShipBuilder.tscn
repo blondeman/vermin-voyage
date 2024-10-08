@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://rkdl6pfqjtyo"]
+
+[ext_resource type="Script" path="res://scripts/Ship/ShipBuilder/ShipBuilder.gd" id="1_ddpu6"]
+[ext_resource type="PackedScene" path="res://scenes/Ship/Ship.tscn" id="2_w4ryu"]
+
+[node name="ShipBuilder" type="Node2D" node_paths=PackedStringArray("ship")]
+script = ExtResource("1_ddpu6")
+ship = NodePath("Ship")
+
+[node name="Ship" parent="." instance=ExtResource("2_w4ryu")]

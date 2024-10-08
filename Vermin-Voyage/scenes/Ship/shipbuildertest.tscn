@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://jnnmqmg06gn7"]
+
+[ext_resource type="PackedScene" uid="uid://rkdl6pfqjtyo" path="res://scenes/Ship/ShipBuilder/ShipBuilder.tscn" id="1_nux3i"]
+[ext_resource type="PackedScene" path="res://scenes/Ship/Ship.tscn" id="2_6wu5x"]
+[ext_resource type="PackedScene" uid="uid://db1f1ali2k0x6" path="res://scenes/Camera.tscn" id="3_sv0h3"]
+[ext_resource type="PackedScene" path="res://scenes/Ship/ShipBuilder/ShipBuilderUI.tscn" id="4_dgo8e"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ShipBuilder" parent="." node_paths=PackedStringArray("ui") instance=ExtResource("1_nux3i")]
+ui = NodePath("../CanvasLayer")
+
+[node name="Ship" parent="ShipBuilder" instance=ExtResource("2_6wu5x")]
+
+[node name="Camera" parent="." instance=ExtResource("3_sv0h3")]
+
+[node name="CanvasLayer" parent="." instance=ExtResource("4_dgo8e")]

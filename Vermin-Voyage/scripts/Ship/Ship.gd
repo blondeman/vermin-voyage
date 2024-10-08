@@ -1,8 +1,8 @@
 extends Node2D
 class_name Ship
 
-var shipNodeScene = preload("res://scenes/ShipNode.tscn")
-var shipLineScene = preload("res://scenes/ShipLine.tscn")
+var shipNodeScene = preload("res://scenes/Ship/ShipNode.tscn")
+var shipLineScene = preload("res://scenes/Ship/ShipLine.tscn")
 
 var nodes: Array = []
 var lines: Array = []
