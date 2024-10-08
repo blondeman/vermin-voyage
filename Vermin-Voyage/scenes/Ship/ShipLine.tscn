@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3kyrici0uu2m"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://scripts/ShipLine.gd" id="1_x6ldo"]
+[ext_resource type="Script" path="res://scripts/Ship/ShipLine.gd" id="1_x6ldo"]
 [ext_resource type="Texture2D" uid="uid://3h5nwrgtxkeh" path="res://icon.svg" id="2_7fpb4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7d683"]

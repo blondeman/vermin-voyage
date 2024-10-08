@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://b58o4rpoc6ght"]
+
+[ext_resource type="PackedScene" uid="uid://c8asm3ksj5ikf" path="res://scenes/Entity.tscn" id="1_f6301"]
+[ext_resource type="Resource" uid="uid://wl1d401l7ihx" path="res://resources/PlayerController.tres" id="2_31gho"]
+
+[node name="Player" instance=ExtResource("1_f6301")]
+controller = ExtResource("2_31gho")

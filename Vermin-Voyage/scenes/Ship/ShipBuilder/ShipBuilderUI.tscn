@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cx3qbgysalr2e"]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://scripts/ShipBuilder/ShipBuilderUI.gd" id="1_os1ba"]
+[ext_resource type="Script" path="res://scripts/Ship/ShipBuilder/ShipBuilderUI.gd" id="1_os1ba"]
 
 [node name="ShipBuilderUI" type="CanvasLayer"]
 script = ExtResource("1_os1ba")
