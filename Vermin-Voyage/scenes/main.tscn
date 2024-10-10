@@ -1,11 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://bibqw1xj6354c"]
+[gd_scene load_steps=5 format=3 uid="uid://bibqw1xj6354c"]
 
 [ext_resource type="PackedScene" uid="uid://b58o4rpoc6ght" path="res://scenes/Player.tscn" id="2_4d7rj"]
 [ext_resource type="PackedScene" uid="uid://db1f1ali2k0x6" path="res://scenes/Camera.tscn" id="3_qxyon"]
+[ext_resource type="Texture2D" uid="uid://3h5nwrgtxkeh" path="res://icon.svg" id="3_ywb5e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1wnv2"]
+size = Vector2(128, 128)
 
 [node name="main" type="Node2D"]
 
-[node name="Camera" parent="." instance=ExtResource("3_qxyon")]
+[node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_qxyon")]
+target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_4d7rj")]
 speed = 100.0
+
+[node name="Block" type="StaticBody2D" parent="."]
+position = Vector2(-100, -100)
+scale = Vector2(0.5, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Block"]
+texture = ExtResource("3_ywb5e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
+shape = SubResource("RectangleShape2D_1wnv2")
+
+[node name="Block2" type="StaticBody2D" parent="."]
+position = Vector2(141, -200)
+rotation = 1.16041
+scale = Vector2(0.5, 2.28878)
+
+[node name="Sprite2D" type="Sprite2D" parent="Block2"]
+texture = ExtResource("3_ywb5e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block2"]
+shape = SubResource("RectangleShape2D_1wnv2")
+
+[node name="Block3" type="StaticBody2D" parent="."]
+position = Vector2(252, -87)
+rotation = -0.464715
+scale = Vector2(0.5, 2.28878)
+
+[node name="Sprite2D" type="Sprite2D" parent="Block3"]
+texture = ExtResource("3_ywb5e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block3"]
+shape = SubResource("RectangleShape2D_1wnv2")
