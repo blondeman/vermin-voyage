@@ -8,3 +8,4 @@
 [node name="Camera" parent="." instance=ExtResource("3_qxyon")]
 
 [node name="Player" parent="." instance=ExtResource("2_4d7rj")]
+speed = 100.0

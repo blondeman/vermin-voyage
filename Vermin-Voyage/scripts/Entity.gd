@@ -7,4 +7,5 @@ class_name Entity
 func _physics_process(delta):
 	# simplified for example
 	velocity = controller.direction * speed
+	print(controller.direction)
 	move_and_slide()
